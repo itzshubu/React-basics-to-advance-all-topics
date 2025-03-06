@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Hello from "./components/showname";
 import { Hoo } from "./components/showname";
+import Calculator from "./components/01Calculator";
 
 function App() {
   const [data2, Setdata2] = useState(8);
@@ -35,6 +36,7 @@ function App() {
       <button className="border p-2" onClick={()=>Setdata2(data2+1)}>change data2  {data2}</button>
 
       <h2 className="bg-red-600 text-black"> hello iam h2 {data2}</h2>
+       <Calculator/>
     </>
   );
 }
