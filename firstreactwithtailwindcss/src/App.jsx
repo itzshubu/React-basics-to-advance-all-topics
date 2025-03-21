@@ -6,10 +6,13 @@ import Calculator from "./components/01Calculator";
 import Button from "./components/buttons"
 import Fetchandshow from "./fetchandshow";
 import EventHandling from "./components/eventHandling";
+import Purechildcompo from "./components/purechildcompo";
 
 function App() {
+  const [count , setCount] = useState(2)
+  const [count2 , setCount2] = useState(3)
   const [data2, Setdata2] = useState(8);
-  console.log("render")
+  console.log("parent render")
   
   // let firstnormal = 89
   // function changenormal(){
@@ -51,9 +54,24 @@ function App() {
        {/* </div> */}
 
        {/* <Fetchandshow/> */}
-       <EventHandling/>
+       {/* <EventHandling/> */}
+       <button className="border border-black m-2" onClick={()=>setCount(count + 1)}>count1 is {count}</button>
+       <button className="border border-black m-2" onClick={()=>setCount2(count2 + 1)}>count2 is {count2}</button>
+     <Purechildcompo data={count2}/>
+     <Hoc Data={Simplecompo}/>
+    
     </>
   );
 }
 
 export default App;
+
+
+const Hoc = ({Data})=>{
+  console.log(Data)
+  return <div> hello i am hoc <Data/> </div>
+}
+
+const Simplecompo = () =>{
+  return <div>simple compo</div>
+}
