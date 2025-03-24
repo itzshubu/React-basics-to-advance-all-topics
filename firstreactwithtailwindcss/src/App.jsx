@@ -7,11 +7,14 @@ import Button from "./components/buttons"
 import Fetchandshow from "./fetchandshow";
 import EventHandling from "./components/eventHandling";
 import Purechildcompo from "./components/purechildcompo";
+import Imggallary from "./components/imggallary";
 
 function App() {
   const [count , setCount] = useState(2)
   const [count2 , setCount2] = useState(3)
   const [data2, Setdata2] = useState(8);
+
+  const [number , setNumber] = useState(true)
   console.log("parent render")
   
   // let firstnormal = 89
@@ -55,11 +58,13 @@ function App() {
 
        {/* <Fetchandshow/> */}
        {/* <EventHandling/> */}
-       <button className="border border-black m-2" onClick={()=>setCount(count + 1)}>count1 is {count}</button>
+       {/* <button className="border border-black m-2" onClick={()=>setCount(count + 1)}>count1 is {count}</button>
        <button className="border border-black m-2" onClick={()=>setCount2(count2 + 1)}>count2 is {count2}</button>
      <Purechildcompo data={count2}/>
      <Hoc Data={Simplecompo}/>
-    
+     <input type="checkbox" checked={number} onChange={()=>setNumber(!number)} />
+     */}
+     <Imggallary/>
     </>
   );
 }
