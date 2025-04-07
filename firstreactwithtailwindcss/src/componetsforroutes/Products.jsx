@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , useContext } from 'react'
+import { ProductsContext } from '../store/ProductContext'
 
 const Products = () => {
-    const [Products , setproducts] = useState([])
     const [Loading , setLoading] = useState(false)
-
-    useEffect(()=>{
-              async function fetchdata(){
-                setLoading(true)
-                 let response = await fetch("https://full-stack-ecommerce-mern.onrender.com/products")
-                 let data = await response.json()
-                 setproducts(data)
-                 setLoading(false)
-                console.log(data)
-              }
-              fetchdata()
-    },[])
+         let Products = useContext(ProductsContext)
+   
 
   function   showstar(star){
        let bold = star
