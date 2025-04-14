@@ -7,6 +7,7 @@ import Contactus from "./componetsforroutes/Contactus";
 import Products from "./componetsforroutes/Products";
 import All from "./productscompo/All";
 import Electronics from "./productscompo/electronics";
+import Cart from "./componetsforroutes/Cart";
 import { BrowserRouter, Routes, Route , Navigate } from "react-router";
 const App2 = () => {
   return (
@@ -22,6 +23,7 @@ const App2 = () => {
           {/* <Route path="electronics" element={<Electronics />} /> */}
         </Route>
         <Route path="/contact" element={<Contactus />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </BrowserRouter>

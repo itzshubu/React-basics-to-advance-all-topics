@@ -7,8 +7,6 @@ const All = () => {
   let Products = useContext(ProductsContext);
 
   function showstar(star) {
-    const [Loading, setLoading] = useState(false);
-    let Products = useContext(ProductsContext);
 
     let bold = star;
     let khali = 5 - star;
@@ -30,7 +28,7 @@ const All = () => {
       <div className="flex gap-2.5 justify-center flex-wrap">
         {Products.map((item, index) => {
           return (
-            <div className="w-[250px] border border-2">
+            <div key={item.productId} className="w-[250px] border border-2">
               <div>
                 <img
                   src={item.image}
