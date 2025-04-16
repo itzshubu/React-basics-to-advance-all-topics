@@ -1,10 +1,12 @@
 import React, { useEffect, useState , useContext } from 'react'
 import { ProductsContext } from '../store/ProductContext'
+import { CartContext } from '../store/CartContext';
 
 
 const All = () => {
   const [Loading, setLoading] = useState(false);
   let Products = useContext(ProductsContext);
+  let { cart, setCart } = useContext(CartContext)
 
   function showstar(star) {
 
@@ -19,6 +21,27 @@ const All = () => {
       showstat += "👽";
     }
     return showstat;
+  }
+
+  function addtocart(item){
+     console.log(item)
+     let matched = cart.filter((fromcart)=>{
+       return fromcart.productId == item.productId
+     })
+     console.log(matched)
+     if(matched.length > 0){
+          let newarr = cart.map((fromcart)=>{
+               if(fromcart.productId == item.productId){
+                return {...fromcart , quantity : fromcart.quantity + 1}
+               }else{
+                return fromcart
+               }
+          })
+          console.log(newarr)
+          setCart(newarr)
+     }else{ 
+      setCart([...cart ,{...item , quantity :1}])
+     }
   }
 
   return (
@@ -37,6 +60,7 @@ const All = () => {
                 />
               </div>
               <div>{showstar(item.rating)}</div>
+              <div><button onClick={()=>addtocart(item)}>add to cart</button></div>
             </div>
           );
         })}

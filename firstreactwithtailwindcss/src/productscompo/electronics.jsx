@@ -18,6 +18,7 @@ const electronics = () => {
     return showstat;
   }
   
+ 0.
   let electronics = data.filter((item) => item.main_category == "Electronics");
   return (
     <div>
